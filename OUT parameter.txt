@@ -1,0 +1,25 @@
+using System;
+using System.Threading;
+public class Program
+{
+    public static void Main(string[] args)
+    {
+
+        int Addition = 20;
+        Thread t1 = new Thread(() => Math(200, 100, out Addition));
+        Thread.Sleep(1000);
+        Console.WriteLine(Addition);
+        t1.Start();
+        
+        Console.WriteLine($"Addition: {Addition}");
+        Console.ReadKey();
+    }
+    public static void Math(int number1, int number2, out int Addition)
+    {
+        Thread.Sleep(10000);
+        Console.WriteLine(Addition);  error -> use of unassigned out parameter 'addition'
+        Addition = number1 + number2;
+    }
+}
+
+Here, The value of OUT parameter Addition was not carried to the method and it is said as unassigned out parameter
